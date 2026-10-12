@@ -16,11 +16,11 @@
   <section id="s-balloon" class="screen on">
     <div class="stage">
       <div id="bouquet" aria-label="A bouquet of colourful balloons"></div>
-      <button class="btn" id="letgo" type="button">LET THEM GO 🎈</button>
+      <button class="btn pointer" id="letgo" type="button">LET THEM GO 🎈</button>
       <p class="card" id="greet" hidden>
         <b class="script" id="g1"></b><span id="g2"></span><span id="g3"></span>
       </p>
-      <button class="btn ghost" id="to-riddle" type="button" hidden>A LITTLE SURPRISE 🧩</button>
+      <button class="btn ghost pointer" id="to-riddle" type="button" hidden>A LITTLE SURPRISE 🧩</button>
     </div>
   </section>
 
@@ -44,7 +44,7 @@
   <section id="s-gift" class="screen">
     <div class="stage">
       <div id="gift" role="button" tabindex="0" aria-label="Open the gift">🎁</div>
-      <button class="btn" id="opengift" type="button">OPEN YOUR SURPRISE 🎁</button>
+      <button class="btn pointer" id="opengift" type="button">OPEN YOUR SURPRISE 🎁</button>
     </div>
   </section>
 
@@ -58,7 +58,7 @@
         <button class="nav" id="next" type="button" aria-label="Next photo">›</button>
       </div>
       <button class="btn ghost" id="mute" type="button">🔇 Tap to play music</button>
-      <button class="btn" id="to-candle" type="button" hidden>Make Your Wish 🎂</button>
+      <button class="btn pointer" id="to-candle" type="button" hidden>Make Your Wish 🎂</button>
     </div>
   </section>
 
@@ -82,9 +82,9 @@
         </svg>
       </div>
       <p class="card" id="wishprompt"><b class="script">Your moment ✨</b><span>Close your eyes, make one beautiful wish, and blow the candle.</span></p>
-      <button class="btn" id="blow" type="button">MAKE IT HAPPEN 🎐</button>
+      <button class="btn pointer" id="blow" type="button">MAKE IT HAPPEN 🎐</button>
       <p class="card" id="wishmsg" hidden><b class="script" id="w1"></b><span id="w2"></span><span id="w3"></span></p>
-      <button class="btn ghost" id="to-party" type="button" hidden>One Last Question ❤️</button>
+      <button class="btn ghost pointer" id="to-party" type="button" hidden>One Last Question ❤️</button>
     </div>
   </section>
 
@@ -101,34 +101,15 @@
         <button class="btn no" id="no" type="button">NO 🥹</button>
       </div>
       <div id="nopop" hidden></div>
-   
-<div id="party-details" class="card" hidden>
-  <b class="script">yayyyyyyyy ohhoo 🎉 ❤️</b>
 
-  <span>
-    Yay, you said YES! Now there's just one little thing...
-    Leave a message for me. I can't wait to read it! 💌
-  </span>
-
-  <label for="party-message">
-    To get info of when and where 💌
-  </label>
-
-  <textarea
-    id="party-message"
-    placeholder="Write a little message for me... ❤️"
-    rows="4"
-    maxlength="2000"
-    required
-  ></textarea>
-
-  <button class="btn" id="send-rsvp">
-    SEND MY MESSAGE 💌
-  </button>
-
-  <span id="email-status" role="status" aria-live="polite"></span>
-</div>
-
+      <div id="party-details" class="card" hidden>
+        <b class="script">yayyyyyyyy ohhoo 🎉 ❤️</b>
+        <span>Yay, you said YES! Now there's just one little thing... Leave a message for me. I can't wait to read it! 💌</span>
+        <label for="party-message">To get info of when and where 💌</label>
+        <textarea id="party-message" placeholder="Write a little message for me... ❤️" rows="4" maxlength="2000" required></textarea>
+        <button class="btn" id="send-rsvp" type="button">SEND MY MESSAGE 💌</button>
+        <span id="email-status" role="status" aria-live="polite"></span>
+      </div>
     </div>
   </section>
 
@@ -142,11 +123,8 @@
     </div>
   </section>
 
-  <!-- AUDIO: start music intentionally keeps playing after the gift opens -->
   <audio id="slideSong" loop preload="auto"></audio>
   <audio id="bday" loop preload="auto"></audio>
-  <audio id="partySound" preload="auto"></audio>
-  <audio id="candleSound" preload="auto"></audio>
   <script src="script.js"></script>
 </body>
 </html>
