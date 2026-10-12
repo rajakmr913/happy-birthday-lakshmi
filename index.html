@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffd9ec">
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="floaters" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- BALLOON SCREEN -->
+  <section id="s-balloon" class="screen on">
+    <div class="stage">
+      <div id="bouquet" aria-label="A bouquet of colourful balloons"></div>
+      <button class="btn" id="letgo" type="button">LET THEM GO 🎈</button>
+      <p class="card" id="greet" hidden>
+        <b class="script" id="g1"></b><span id="g2"></span><span id="g3"></span>
+      </p>
+      <button class="btn ghost" id="to-riddle" type="button" hidden>A LITTLE SURPRISE 🧩</button>
+    </div>
+  </section>
+
+  <!-- RIDDLE SCREEN -->
+  <section id="s-riddle" class="screen">
+    <div class="stage">
+      <div class="card">
+        <b class="script">One tiny challenge before the surprise ✨</b>
+        <span id="rq"></span>
+        <input id="rin" type="text" placeholder="Type your answer..." autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" aria-label="Riddle answer">
+        <div class="row">
+          <button class="btn" id="rcheck" type="button">CHECK ✨</button>
+          <button class="btn ghost" id="rhint" type="button">LITTLE HINT 💡</button>
+        </div>
+        <span id="rmsg" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFT SCREEN -->
+  <section id="s-gift" class="screen">
+    <div class="stage">
+      <div id="gift" role="button" tabindex="0" aria-label="Open the gift">🎁</div>
+      <button class="btn" id="opengift" type="button">OPEN YOUR SURPRISE 🎁</button>
+    </div>
+  </section>
+
+  <!-- SLIDESHOW -->
+  <section id="s-slides" class="screen">
+    <div class="stage">
+      <div id="slide"><img id="photo" alt="Beautiful memory"><div id="cap"></div></div>
+      <div class="row">
+        <button class="nav" id="prev" type="button" aria-label="Previous photo">‹</button>
+        <span id="count"></span>
+        <button class="nav" id="next" type="button" aria-label="Next photo">›</button>
+      </div>
+      <button class="btn ghost" id="mute" type="button">🔇 Tap to play music</button>
+      <button class="btn" id="to-candle" type="button" hidden>Make Your Wish 🎂</button>
+    </div>
+  </section>
+
+  <!-- CANDLE -->
+  <section id="s-candle" class="screen">
+    <div class="stage">
+      <div id="cake" aria-label="Birthday cake; tap to blow the candle">
+        <svg id="cakesvg" viewBox="0 -14 220 204" aria-hidden="true">
+          <ellipse cx="110" cy="172" rx="102" ry="13" fill="#f3d9ff" stroke="#5b2650" stroke-width="3"/>
+          <rect x="20" y="108" width="180" height="62" rx="14" fill="#ffd9a8" stroke="#5b2650" stroke-width="3"/>
+          <rect x="20" y="108" width="180" height="22" rx="12" fill="#ff9ccc" stroke="#5b2650" stroke-width="3"/>
+          <g fill="#ff9ccc" stroke="#5b2650" stroke-width="2.5"><circle cx="45" cy="132" r="8"/><circle cx="85" cy="134" r="8"/><circle cx="135" cy="134" r="8"/><circle cx="175" cy="132" r="8"/></g>
+          <rect x="55" y="64" width="110" height="46" rx="12" fill="#ffd9a8" stroke="#5b2650" stroke-width="3"/>
+          <rect x="55" y="64" width="110" height="18" rx="10" fill="#fff" stroke="#5b2650" stroke-width="3"/>
+          <g stroke-width="3.5" stroke-linecap="round"><path d="M72 94l4-2" stroke="#7bdff2"/><path d="M100 98l3 3" stroke="#ffd166"/><path d="M130 93l4-2" stroke="#c9a7ff"/><path d="M150 99l3 2" stroke="#ff8ec4"/><path d="M40 150l4-2" stroke="#fff"/><path d="M110 152l4-2" stroke="#7bdff2"/><path d="M170 150l3 3" stroke="#ffd166"/></g>
+          <circle id="glow" cx="110" cy="10" r="28" fill="rgba(255,225,110,.55)"/>
+          <rect x="103" y="30" width="14" height="38" rx="4" fill="#fff" stroke="#5b2650" stroke-width="3"/>
+          <path d="M104 40l12-6M104 52l12-6M104 64l12-6" stroke="#ff8ec4" stroke-width="3"/>
+          <path d="M110 22v8" stroke="#5b2650" stroke-width="3" stroke-linecap="round"/>
+          <g id="flame"><path d="M110 -8C122 6 122 18 110 24 98 18 98 6 110 -8Z" fill="#ffb703" stroke="#5b2650" stroke-width="2.5"/><ellipse cx="110" cy="14" rx="4.5" ry="8" fill="#fff6c0"/></g>
+        </svg>
+      </div>
+      <p class="card" id="wishprompt"><b class="script">Your moment ✨</b><span>Close your eyes, make one beautiful wish, and blow the candle.</span></p>
+      <button class="btn" id="blow" type="button">MAKE IT HAPPEN 🎐</button>
+      <p class="card" id="wishmsg" hidden><b class="script" id="w1"></b><span id="w2"></span><span id="w3"></span></p>
+      <button class="btn ghost" id="to-party" type="button" hidden>One Last Question ❤️</button>
+    </div>
+  </section>
+
+  <!-- PARTY -->
+  <section id="s-party" class="screen">
+    <div class="stage">
+      <h2 class="script big">So... Party Toh Banti Hai! 🎉</h2>
+      <p class="card">
+        <span>Today is about smiles, good vibes, cake and making beautiful memories.</span>
+        <span>So what do you say? 😌</span>
+      </p>
+      <div class="row" id="party-buttons">
+        <button class="btn" id="yes" type="button">✨ YES! 🤩</button>
+        <button class="btn no" id="no" type="button">NO 🥹</button>
+      </div>
+      <div id="nopop" hidden></div>
+   
+<div id="party-details" class="card" hidden>
+  <b class="script">yayyyyyyyy ohhoo 🎉 ❤️</b>
+
+  <span>
+    Yay, you said YES! Now there's just one little thing...
+    Leave a message for me. I can't wait to read it! 💌
+  </span>
+
+  <label for="party-message">
+    To get info of when and where 💌
+  </label>
+
+  <textarea
+    id="party-message"
+    placeholder="Write a little message for me... ❤️"
+    rows="4"
+    maxlength="2000"
+    required
+  ></textarea>
+
+  <button class="btn" id="send-rsvp">
+    SEND MY MESSAGE 💌
+  </button>
+
+  <span id="email-status" role="status" aria-live="polite"></span>
+</div>
+
+    </div>
+  </section>
+
+  <!-- THANK YOU -->
+  <section id="s-thanks" class="screen">
+    <div class="stage">
+      <div class="mascots">🐱🐻🐰🐼🐧🐥</div>
+      <h2 class="script big">YAYYYY! 🤩</h2>
+      <p class="card" id="thx"></p>
+      <button class="btn ghost" id="restart" type="button">Relive The Magic ✨</button>
+    </div>
+  </section>
+
+  <!-- AUDIO: start music intentionally keeps playing after the gift opens -->
+  <audio id="slideSong" loop preload="auto"></audio>
+  <audio id="bday" loop preload="auto"></audio>
+  <audio id="partySound" preload="auto"></audio>
+  <audio id="candleSound" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
